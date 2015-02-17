@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="menu-nested.css">
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="menu-nested.js"></script>
+	</head>
+	<body>
+		<div id="menu" class="menu">
+			<span class="menu-title">Menu</span>
+			<ol class="menu-list">
+				<li class="menu-nested">
+					<span class="menu-nested-title">Item1 >></span>
+					<ol class="menu-nested-list">
+						<li>Item1b</li>
+						<li class="menu-nested">
+							<span class="menu-nested-title">Item2b>></span>
+							<ol class="menu-nested-list">
+								<li>Item1c</li>
+								<li>Item2c</li>
+								<li>Item3c</li>
+								<li>Item4c</li>
+							</ol>
+						</li>
+						<li>Item3b</li>
+						<li>Item4b</li>
+						<li>Item5b</li>
+					</ol>
+				</li>
+				<li>Item2</li>
+				<li>Item3</li>
+				<li class="menu-nested">
+					<span class="menu-nested-title">Item4 >></span>
+					<ol class="menu-nested-list">
+						<li>Item1d</li>
+						<li>Item2d</li>
+						<li>Item3d</li>
+						<li>Item4d</li>
+					</ol>
+				</li>
+				<li>Item5</li>
+			</ol>
+		</div>
+		<p id="select">Some Text</p>
+
+		<script>
+		var menu = new MenuNested({
+			elem: $("#menu"),
+		});
+
+		$(menu).on("select", function(e) {
+			$("#select").html(e.value);
+		});
+		</script>
+	</body>
+</html>
